@@ -9,6 +9,42 @@ Set-Alias -Name vim -Value nvim
 Set-Alias -Name v -Value nvim
 Set-Alias -Name exportProjectCode -Value Export-ProjectCode
 
+Set-Alias -Name lcct -Value launch_front_terre_vue
+Set-Alias -Name lccb -Value launch_front_bord_vue
+Set-Alias -Name lbft -Value launch_front_terre_angular
+Set-Alias -Name lbfb -Value launch_front_bord_angular
+Set-Alias -Name owsl -Value optimize_wsl_space
+Set-Alias -Name vm_asi_connect -Value "ssh adm-asi@10.9.6.11"
+
+Function launch_front_terre_vue {
+    Set-Location -Path "$HOME\Documents\projets\cybele\cybele-client-terre"
+    nvm use 16
+    npm run dev
+}
+
+Function launch_front_bord_vue {
+    Set-Location -Path "$HOME\Documents\projets\cybele\cybele-client"
+    nvm use 16
+    npm run dev
+}
+
+Function launch_front_bord_angular {
+    Set-Location -Path "$HOME\Documents\projets\cybele\bf-ui"
+    nvm use 10
+    gulp bord
+}
+
+Function launch_front_terre_angular {
+    Set-Location -Path "$HOME\Documents\projets\cybele\bf-ui-terre"
+    nvm use 10
+    gulp terre
+}
+
+Function optimize_wsl_space {
+    Set-Location -Path "$env:LOCALAPPDATA\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\"
+    optimize-VHD .\ext4.vhdx
+}
+
 # Fonctions
 
 function GoToPersonalProjetDirectory {
@@ -17,7 +53,7 @@ function GoToPersonalProjetDirectory {
 }
 
 function Edit-Nvim-Profile {
-    # $env:LOCALAPPDATA référence le dossier AppData\Local de l'utilisateur
+    # Utilise $env:LOCALAPPDATA pour référencer le dossier AppData\Local de l'utilisateur
     nvim "$env:LOCALAPPDATA\nvim"
 }
 
