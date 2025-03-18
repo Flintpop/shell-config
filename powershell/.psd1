@@ -3,7 +3,7 @@
     RootModule        = 'ShellConfig.psm1'
 
     # Version du module (suivant la sémantique SemVer)
-    ModuleVersion     = '1.0.0'
+    ModuleVersion     = '1.0.1'
 
     # Identifiant unique du module (GUID)
     GUID              = 'e7c2b8f1-9d32-4d3c-8d3a-123456789abc'
